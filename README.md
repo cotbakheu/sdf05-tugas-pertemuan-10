@@ -2,6 +2,7 @@
 
 ## 1. Struktur Proyek
 
+```text
 sdf05-tugas-pertemuan-10/
 ├── src/
 │   └── pricing.py
