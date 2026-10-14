@@ -1,5 +1,27 @@
 # Tugas 3 Kelompok — Pengujian Pricing
 
+## 1. Struktur Proyek
+
+```text
+sdf05-tugas-pertemuan-10/
+├── src/
+│   └── pricing.py
+├── tests/
+│   └── test_pricing.py
+├── .gitignore
+├── .python-version
+├── pyproject.toml
+├── uv.lock
+└── README.md
+```
+
+## 2. Cara Menjalankan
+
+1. Pasang alat: pip install uv
+2. Pasang kebutuhan: uv sync
+3. Jalankan tes: uv run pytest tests/ -v
+4. Jalankan program: uv run python -m src.pricing
+
 ## 3. Pengujian Mutasi
 
 Pengujian mutasi dilakukan dengan mengubah implementasi `src/pricing.py` secara sengaja untuk memastikan unit test dapat mendeteksi kerusakan pada aturan bisnis. Setiap mutasi diuji pada salinan kode di folder sementara, jadi kode asli tetap aman.
