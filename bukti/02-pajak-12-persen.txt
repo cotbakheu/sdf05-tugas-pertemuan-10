@@ -1,0 +1,70 @@
+Kasus: 02-pajak-12-persen
+Python: 3.12.15
+SHA256 sumber kasus: 6028b6f13285954061439c803c3009853125f1ee5652c510e50cd7c353c4cea2
+Perintah: python -m pytest -v --tb=short --color=no -p no:cacheprovider tests
+Exit code: 1
+
+============================= test session starts ==============================
+platform darwin -- Python 3.12.15, pytest-9.1.1, pluggy-1.6.0 -- /Users/izhar.dputra/Documents/1-IRD/20-Kuliah/23-Cakrawala-Ilkom/3_Semester 3/3_SDF05 - Software Development Fundamentals/tugas-ds/sdf05-tugas-pertemuan-10/.venv/bin/python
+rootdir: /private/var/folders/xs/9tybxty54_q8jh_v45f1ntym0000gn/T/pricing-mutation-eoeg5aka
+collecting ... collected 19 items
+
+tests/test_pricing.py::test_calculate_subtotal_valid_inputs[10000-2-20000] PASSED [  5%]
+tests/test_pricing.py::test_calculate_subtotal_valid_inputs[15000-3-45000] PASSED [ 10%]
+tests/test_pricing.py::test_calculate_subtotal_valid_inputs[0-5-0] PASSED [ 15%]
+tests/test_pricing.py::test_calculate_subtotal_negative_price_raises_value_error PASSED [ 21%]
+tests/test_pricing.py::test_calculate_subtotal_zero_quantity_raises_value_error PASSED [ 26%]
+tests/test_pricing.py::test_calculate_subtotal_negative_quantity_raises_value_error PASSED [ 31%]
+tests/test_pricing.py::test_apply_member_discount_applies_ten_percent PASSED [ 36%]
+tests/test_pricing.py::test_apply_member_discount_non_member_pays_full_price PASSED [ 42%]
+tests/test_pricing.py::test_apply_member_discount_zero_subtotal PASSED   [ 47%]
+tests/test_pricing.py::test_add_tax_applies_eleven_percent FAILED        [ 52%]
+tests/test_pricing.py::test_add_tax_zero_amount PASSED                   [ 57%]
+tests/test_pricing.py::test_calculate_total_for_member FAILED            [ 63%]
+tests/test_pricing.py::test_calculate_total_for_non_member FAILED        [ 68%]
+tests/test_pricing.py::test_calculate_total_defaults_to_non_member FAILED [ 73%]
+tests/test_pricing.py::test_calculate_total_negative_price_raises_value_error PASSED [ 78%]
+tests/test_pricing.py::test_calculate_total_zero_quantity_raises_value_error PASSED [ 84%]
+tests/test_pricing.py::test_write_receipt_writes_lines_with_final_newline PASSED [ 89%]
+tests/test_pricing.py::test_write_receipt_with_empty_lines PASSED        [ 94%]
+tests/test_pricing.py::test_write_receipt_overwrites_existing_file PASSED [100%]
+
+=================================== FAILURES ===================================
+_____________________ test_add_tax_applies_eleven_percent ______________________
+tests/test_pricing.py:55: in test_add_tax_applies_eleven_percent
+    assert result == pytest.approx(111000)
+E   assert 112000.00000000001 == 111000 ± 0.111
+E     
+E     comparison failed
+E     Obtained: 112000.00000000001
+E     Expected: 111000 ± 0.111
+_______________________ test_calculate_total_for_member ________________________
+tests/test_pricing.py:64: in test_calculate_total_for_member
+    assert result == pytest.approx(99900)
+E   assert 100800.00000000001 == 99900 ± 0.0999
+E     
+E     comparison failed
+E     Obtained: 100800.00000000001
+E     Expected: 99900 ± 0.0999
+_____________________ test_calculate_total_for_non_member ______________________
+tests/test_pricing.py:69: in test_calculate_total_for_non_member
+    assert result == pytest.approx(111000)
+E   assert 112000.00000000001 == 111000 ± 0.111
+E     
+E     comparison failed
+E     Obtained: 112000.00000000001
+E     Expected: 111000 ± 0.111
+_________________ test_calculate_total_defaults_to_non_member __________________
+tests/test_pricing.py:74: in test_calculate_total_defaults_to_non_member
+    assert result == pytest.approx(111000)
+E   assert 112000.00000000001 == 111000 ± 0.111
+E     
+E     comparison failed
+E     Obtained: 112000.00000000001
+E     Expected: 111000 ± 0.111
+=========================== short test summary info ============================
+FAILED tests/test_pricing.py::test_add_tax_applies_eleven_percent - assert 11...
+FAILED tests/test_pricing.py::test_calculate_total_for_member - assert 100800...
+FAILED tests/test_pricing.py::test_calculate_total_for_non_member - assert 11...
+FAILED tests/test_pricing.py::test_calculate_total_defaults_to_non_member - a...
+========================= 4 failed, 15 passed in 0.03s =========================
