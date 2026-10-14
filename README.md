@@ -1,7 +1,5 @@
 # Tugas 3 Kelompok — Pengujian Pricing
 
-Bagian Dharma (`dsatriadi-ckwla`): pengujian mutasi dan bukti pengujian.
-
 ## 3. Pengujian Mutasi
 
 Pengujian mutasi dilakukan dengan mengubah implementasi `src/pricing.py` secara sengaja untuk memastikan unit test dapat mendeteksi kerusakan pada aturan bisnis. Setiap mutasi diuji pada salinan kode di folder sementara, jadi kode asli tetap aman.
