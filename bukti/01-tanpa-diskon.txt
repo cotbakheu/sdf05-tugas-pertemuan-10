@@ -1,0 +1,52 @@
+Kasus: 01-tanpa-diskon
+Python: 3.12.15
+SHA256 sumber kasus: 2e7435cdd3972ee80580b247b4640afb016685fb4b4b87b1a59f27fd0ec7fc9d
+Perintah: python -m pytest -v --tb=short --color=no -p no:cacheprovider tests
+Exit code: 1
+
+============================= test session starts ==============================
+platform darwin -- Python 3.12.15, pytest-9.1.1, pluggy-1.6.0 -- /Users/izhar.dputra/Documents/1-IRD/20-Kuliah/23-Cakrawala-Ilkom/3_Semester 3/3_SDF05 - Software Development Fundamentals/tugas-ds/sdf05-tugas-pertemuan-10/.venv/bin/python
+rootdir: /private/var/folders/xs/9tybxty54_q8jh_v45f1ntym0000gn/T/pricing-mutation-2tugehs1
+collecting ... collected 19 items
+
+tests/test_pricing.py::test_calculate_subtotal_valid_inputs[10000-2-20000] PASSED [  5%]
+tests/test_pricing.py::test_calculate_subtotal_valid_inputs[15000-3-45000] PASSED [ 10%]
+tests/test_pricing.py::test_calculate_subtotal_valid_inputs[0-5-0] PASSED [ 15%]
+tests/test_pricing.py::test_calculate_subtotal_negative_price_raises_value_error PASSED [ 21%]
+tests/test_pricing.py::test_calculate_subtotal_zero_quantity_raises_value_error PASSED [ 26%]
+tests/test_pricing.py::test_calculate_subtotal_negative_quantity_raises_value_error PASSED [ 31%]
+tests/test_pricing.py::test_apply_member_discount_applies_ten_percent FAILED [ 36%]
+tests/test_pricing.py::test_apply_member_discount_non_member_pays_full_price PASSED [ 42%]
+tests/test_pricing.py::test_apply_member_discount_zero_subtotal PASSED   [ 47%]
+tests/test_pricing.py::test_add_tax_applies_eleven_percent PASSED        [ 52%]
+tests/test_pricing.py::test_add_tax_zero_amount PASSED                   [ 57%]
+tests/test_pricing.py::test_calculate_total_for_member FAILED            [ 63%]
+tests/test_pricing.py::test_calculate_total_for_non_member PASSED        [ 68%]
+tests/test_pricing.py::test_calculate_total_defaults_to_non_member PASSED [ 73%]
+tests/test_pricing.py::test_calculate_total_negative_price_raises_value_error PASSED [ 78%]
+tests/test_pricing.py::test_calculate_total_zero_quantity_raises_value_error PASSED [ 84%]
+tests/test_pricing.py::test_write_receipt_writes_lines_with_final_newline PASSED [ 89%]
+tests/test_pricing.py::test_write_receipt_with_empty_lines PASSED        [ 94%]
+tests/test_pricing.py::test_write_receipt_overwrites_existing_file PASSED [100%]
+
+=================================== FAILURES ===================================
+________________ test_apply_member_discount_applies_ten_percent ________________
+tests/test_pricing.py:41: in test_apply_member_discount_applies_ten_percent
+    assert result == pytest.approx(90000)
+E   assert 100000 == 90000 ± 0.09
+E     
+E     comparison failed
+E     Obtained: 100000
+E     Expected: 90000 ± 0.09
+_______________________ test_calculate_total_for_member ________________________
+tests/test_pricing.py:64: in test_calculate_total_for_member
+    assert result == pytest.approx(99900)
+E   assert 111000.00000000001 == 99900 ± 0.0999
+E     
+E     comparison failed
+E     Obtained: 111000.00000000001
+E     Expected: 99900 ± 0.0999
+=========================== short test summary info ============================
+FAILED tests/test_pricing.py::test_apply_member_discount_applies_ten_percent
+FAILED tests/test_pricing.py::test_calculate_total_for_member - assert 111000...
+========================= 2 failed, 17 passed in 0.03s =========================
